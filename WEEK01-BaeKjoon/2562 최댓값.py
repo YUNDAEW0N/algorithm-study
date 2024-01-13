@@ -16,6 +16,3 @@ for i in range(1,len(a)):
 
 print("%d\n%d"%(maximum,max_index))
 
-
-#백준에선 틀렸다고 나옴 왜지??!?
-
