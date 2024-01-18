@@ -21,7 +21,7 @@ for i in range(99):
     if num==T:
         break
 
-# print(count)
+print(count)
 
 #정답 돌아감
 
