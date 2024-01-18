@@ -11,6 +11,8 @@ s=[]
 for i in range(T):
     n=int(input())
     s.append(n)
+    
+
 
 
 maxheap=[]
@@ -36,7 +38,7 @@ for i in range(len(s)):
 
 # print(answer)
 
-
+print(s[0])
 for i in range(len(answer)):
     print(answer[i])
 
@@ -44,3 +46,4 @@ for i in range(len(answer)):
 
 # 직접 구현한 최대힙 재구성 heapify를 써서 maxheap을 구하고
 # heapq에 있는 minheap 을 써서 했더니 시간초과가 난다. ㅠ
+# 븅신같은문제 솔류션보고 이해하는걸로
