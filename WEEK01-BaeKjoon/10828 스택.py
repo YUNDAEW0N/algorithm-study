@@ -37,7 +37,7 @@ class Stack:
         else:
             print(self.stk[self.ptr-1])
         
-ls=[]
+
 T=int(input())
 stack=Stack(T)
 
