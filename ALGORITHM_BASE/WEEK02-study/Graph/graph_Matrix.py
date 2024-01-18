@@ -1,9 +1,8 @@
+# 인접행렬 그래프 구현
 class Graph:
     def __init__(self, ver_count):
         self.ver_count = ver_count
         self.arr = [[0] * ver_count for _ in range(ver_count)]
-
-
 
 
 def add_directed_edge(p, src, dest):

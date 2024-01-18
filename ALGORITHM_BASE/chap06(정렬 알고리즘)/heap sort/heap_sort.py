@@ -30,17 +30,18 @@ from typing import MutableSequence
 #         down_heap(a,0,i-1)
 
 
-def heapify(a: MutableSequence,size: int):
+def heap_sort(a: MutableSequence,size: int):
   
+    #heapify
     #배열을 max heap으로 변경 -> heapify
     for i in range(size//2 -1, -1, -1):
         shiftDown(a,i,size)
     
     # heap_sort
     # N만큼 반복하면서 shiftDown
-    # for i in range(size-1, -1 , -1):
-    #     a[0],a[i]=a[i],a[0]
-    #     shiftDown(a,0,i)
+    for i in range(size-1, -1 , -1):
+        a[0],a[i]=a[i],a[0]
+        shiftDown(a,0,i)
 
 
 
@@ -62,6 +63,6 @@ def shiftDown(a,parent: int,size: int):
 
 a=[6,4,8,2,5,7,9,1,3,10]
 
-heapify(a,10)
+heap_sort(a,10)
 
 print(a)
