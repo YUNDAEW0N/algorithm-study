@@ -41,6 +41,33 @@ class SLinkedList:
     def deleteAfter(self,prev_node):
         if prev_node.next is not None:
             prev_node.next=prev_node.next.next
+
+    #노드 삭제하기 (재귀적)
+    def recursive(self, node: ListNode) -> ListNode:
+        if not node:
+            return None
+        next_node = self.recursive(node.next)
+        if node.val == self.__val:
+            return next_node 
+        else:
+            node.next = next_node
+            return node
+  
+    #노드 삭제하기 (iterable)
+    def iterative(self, node: ListNode) -> ListNode:    
+        dummy_head = ListNode(0)
+        dummy_head.next = node
+    
+        crnt_node = node
+        prev_node = dummy_head
+        while crnt_node:
+            if crnt_node.val == self.__val:
+                prev_node.next = crnt_node.next
+                crnt_node = crnt_node.next
+            else:
+                crnt_node = crnt_node.next
+                prev_node = prev_node.next
+        return dummy_head.next
         
 
 
