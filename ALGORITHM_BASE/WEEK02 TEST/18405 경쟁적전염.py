@@ -1,48 +1,50 @@
 import sys
 input=sys.stdin.readline
+from collections import deque 
 
 N,K=map(int,input().split())
+map_=[list(map(int, input().split())) for i in range(N)]
+S, X, Y = map(int, input().split())
 
-graph = []
-flag = [[False]*N for _ in range(N)]
-visited=[[0]*N for _ in range(N)]
+# 상하 좌우
+dr=[-1,1,0,0]
+dc=[0,0,-1,1]
 
-for i in range(N):
-   a,b,c=map(int,input().split())
-   graph.append([a,b,c])
+orders=[]
 
-S,X,Y=map(int,input().split())
-second=S
+for r in range(N):
+    for c in range(N):
+        if map_[r][c]!=0:
+            orders.append((r,c,0,map_[r][c]))
+
+orders = sorted(orders, key=lambda x: x[3])
+orders= deque(orders)
+
+def bfs(orders):
+    global map_
+
+    while orders:
+        r , c, dep, num = orders.popleft()
+
+        if dep==S:
+            break
+
+        for i in range(4):
+            nr=r+dr[i]
+            nc=c+dc[i]
+
+            if nr<0 or nr>=N or nc<0 or nc>= N:
+                continue
+
+            if map_[nr][nc]==0:
+                map_[nr][nc]=num
+                orders.append((nr,nc,dep+1,num))
+
+bfs(orders)
+print(map_[X-1][Y-1])
 
 
 
-
-def bfs(si,sj):
-    q=[]
-    q.append((si,sj))
-    if visited[si][sj]==0:
-        visited[si][sj]=graph[si][sj]
-    while q:
-        print(q)
-        ci,cj=q.pop(0)
-        for di,dj in ((-1,0),(1,0),(0,1),(0,-1)):
-            ni,nj=di+ci,dj+cj
-            if 0<=ni<N and 0<=nj<N and visited[ni][nj]==0:
-                # q.append((ni,nj))
-                if visited[ni][nj]<visited[ci][cj]:
-                    visited[ni][nj]=visited[si][sj]
-                
-
-count=0
-
-while count<S:
-    for i in range(K):
-        for j in range(K):
-                bfs(i,j)
-                print(visited)
-            
-    count+=1
-    print('---------------')
 
 
 
