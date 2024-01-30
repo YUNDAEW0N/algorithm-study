@@ -7,13 +7,9 @@ dp=[[0]*(N+1) for _ in range(K+1)]
 items=[(0,0)]
 
 
-
-
 for i in range(N):
     w,v=map(int,input().split())
     items.append((w,v))
-
-
 
 for i in range(1,N+1):
     for j in range(1,K+1):
