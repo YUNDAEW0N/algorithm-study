@@ -3,16 +3,22 @@ input=sys.stdin.readline
 
 n=int(input())
 a=[int(input()) for _ in range(n)]
-dp=[[0]*(n+1) for _ in range(2)]
+total=sum(a)
+
+dp=[0]*(n+1)
+if n==3:
+    print(total-min(a[0],a[1]))
+    exit()
+elif n<3:
+    print(total)
+    exit()
+dp[0]=a[0]
+dp[1]=a[1]
+dp[2]=a[2]
+for i in range(3,n):
+    dp[i]=min(dp[i-2]+a[i],dp[i-3]+a[i])
 
 
-dp[1][1]=a[0]
-if n>=2:
-    dp[0][2]=a[0]+a[1]
-    dp[1][2]=a[1]
-
-for i in range(3,n+1):
-    dp[0][i]=dp[1][i-1]+a[i-1]
-    dp[1][i]=max(dp[0][i-2],dp[1][i-2])+ a[i-1]
-
-print(max(dp[0][n],dp[1][n]))
+minimum=min(dp[n-2],dp[n-3])
+print(total-minimum)
+# print(dp)
