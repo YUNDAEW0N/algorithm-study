@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/daewon/Documents/GitHub/algorithm-study/Cstudy",
-      "program": "c:/Users/daewon/Documents/GitHub/algorithm-study/Cstudy/build/Debug/outDebug",
+      "cwd": "c:/Users/daewon/Documents/GitHub/algorithm-study/C",
+      "program": "c:/Users/daewon/Documents/GitHub/algorithm-study/C/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
